@@ -1,0 +1,169 @@
+/* Universal apply rule */
+/* *,
+*::before,
+*::after {
+  box-sizing: border-box;
+} */
+
+/* Grouping selector */
+.abc,
+[data-type='def'] {
+  height: 100px;
+  width: 100px;
+  border: 10px solid black;
+  padding: 20px 20px;
+  margin: 20px 20px;
+  /* box-sizing: border-box; */
+  /* box-sizing: content-box; default */
+}
+
+/* combinator */
+div.abc p {
+  color: red;
+}
+/* compound selector */
+div.abc {
+  height: 100px;
+  width: 100px;
+  border: 10px solid black;
+  padding: 20px 20px;
+  margin: 20px 20px;
+  /* box-sizing: border-box; */
+  /* box-sizing: content-box; default */
+}
+
+/* Specificity -  CSS read top to bottom, what ever on bottom is applied to elem*/
+
+/* .parent1 {
+  color: aqua;
+} */
+/* 0 0 1 0 */
+/* .parent {
+  color: blue;
+} */
+
+/* 0 1 0 0 */
+/* #child1 {
+  color: red;
+} */
+
+/* 0 0 0 1 */
+/* span {
+  color: green;
+} */
+
+/* inline style has specificity  1 0 0 0*/
+
+p {
+  font-size: 4rem;
+}
+/* 0 0 1 0 */
+.parent {
+  color: blue;
+  /* font-size: 2rem; */
+}
+
+/* body {
+  font-size: 6rem;
+} */
+
+.child1 {
+  color: inherit;
+  font-size: initial;
+}
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+.abcflex {
+  height: 100px;
+  width: 100px;
+  border: 10px solid black;
+  padding: 20px 20px;
+  overflow: auto;
+}
+
+.abc::backdrop {
+  background-color: goldenrod;
+}
+
+.abc {
+  animation-name: tarun;
+  animation-duration: 1s;
+  animation-iteration-count: 5;
+  animation-timing-function: ease;
+}
+
+@keyframes tarun {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(100px);
+  }
+}
+
+/* animation */
+
+.pulser {
+  background-color: chartreuse;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  margin-top: 50px;
+  animation-name: pulser;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes pulser {
+  0% {
+    /* transform: scale(1); */
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0.5;
+  }
+}
+
+/* .flip-div {
+  width: 200px;
+  height: 200px;
+  position: relative;
+} */
+
+.flip {
+  background-color: antiquewhite;
+  margin-top: 20px;
+  width: 200px;
+  height: 200px;
+  position: relative;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  transform-style: preserve-3d;
+  transition: all 1s;
+}
+
+.front,
+.back {
+  height: 200px;
+  width: 200px;
+  position: absolute;
+  backface-visibility: hidden;
+  transform:;
+}
+
+.back {
+  transform: rotateY(180deg);
+}
+
+.flip:hover {
+  transform: rotateY(180deg);
+}
